@@ -4,27 +4,40 @@ let angle1 = -1
 let speed = 0.05;
 var R = 0; 
 
+let audioStarted = false; 
 
-let centerX = 300;
-let centerY = 300;
+let centerX 
+let centerY 
 
 let audioIn;
 
 
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas (windowWidth, windowHeight);
+  
+  centerX = windowWidth/2
+  centerY = windowHeight/2
   
   rectMode(CENTER);
   
   mic = new p5.AudioIn();
   mic.getSources(gotSources);
+  getAudioContext().suspend();
 
+}
+
+function mousePressed() { // needed to get it to work in full screen mode. Add in mousePressed()
+    // Start audio on user gesture
+    if (!audioStarted) {
+        userStartAudio();
+        audioStarted = true;
+    }
 }
 
 function gotSources(deviceList) {
   if (deviceList.length > 0) {
-    mic.setSource(0);
+    mic.setSource(1);
     let currentSource = deviceList[mic.currentSource];
     print('set source to: ' + currentSource.label);
     mic.start();
@@ -72,120 +85,120 @@ function draw() {
   stroke(32, 124, 161);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+440, posX+440)
+  ellipse(centerX, centerY, posY+440, posX+440)
     
 
   stroke(32, 124, 161);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+420, posX+420)
+  ellipse(centerX, centerY, posY+420, posX+420)
 
   stroke(32, 124, 161);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+400, posX+400)
+  ellipse(centerX, centerY, posY+400, posX+400)
   
   stroke(102, 0, 153);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+380, posX+380)
+  ellipse(centerX, centerY, posY+380, posX+380)
   
 
   stroke(102, 0, 153);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+360, posX+360)
+  ellipse(centerX, centerY, posY+360, posX+360)
       
   stroke(102, 0, 153);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+340, posX+340)
+  ellipse(centerX, centerY, posY+340, posX+340)
     
 
   stroke(32, 124, 161);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+320, posX+320)
+  ellipse(centerX, centerY, posY+320, posX+320)
 
   stroke(0, 0, 173);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+300, posX+300)
+  ellipse(centerX, centerY, posY+300, posX+300)
 
   stroke(0, 0, 173);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+280, posX+280)
+  ellipse(centerX, centerY, posY+280, posX+280)
   
   stroke(32, 124, 161);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+260, posX+260)
+  ellipse(centerX, centerY, posY+260, posX+260)
   
   stroke(255, 122, 153);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+240, posX+240)
+  ellipse(centerX, centerY, posY+240, posX+240)
     
   stroke(255, 122, 153);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+220, posX+220)
+  ellipse(centerX, centerY, posY+220, posX+220)
 
   stroke(255, 122, 153);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+200, posX+200)
+  ellipse(centerX, centerY, posY+200, posX+200)
 
   stroke(102, 0, 153);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+180, posX+180)
+  ellipse(centerX, centerY, posY+180, posX+180)
 
   stroke(102, 0, 153);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+160, posX+160)
+  ellipse(centerX, centerY, posY+160, posX+160)
       
   stroke(102, 0, 153);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+140, posX+140)
+  ellipse(centerX, centerY, posY+140, posX+140)
 
   stroke(32, 124, 161);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+120, posX+120)
+  ellipse(centerX, centerY, posY+120, posX+120)
 
   stroke(32, 124, 161);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+100, posX+100)
+  ellipse(centerX, centerY, posY+100, posX+100)
 
   stroke(32, 124, 161);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+80, posX+80)
+  ellipse(centerX, centerY, posY+80, posX+80)
 
   stroke(0, 0, 173);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+60, posX+60)
+  ellipse(centerX, centerY, posY+60, posX+60)
 
   stroke(0, 0, 173);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+40, posX+40)
+  ellipse(centerX, centerY, posY+40, posX+40)
 
   stroke(0, 0, 173);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY+20, posX+20)
+  ellipse(centerX, centerY, posY+20, posX+20)
 
   stroke(0, 0, 153);
   strokeWeight(2);
   ellipseMode(CENTER);
-  ellipse(300, 300, posY, posX)
+  ellipse(centerX, centerY, posY, posX)
   
   
 //   fill(300)
